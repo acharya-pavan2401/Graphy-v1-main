@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from langchain_groq import ChatGroq
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
@@ -20,7 +21,7 @@ def main():
         page_title="Graphy v1",
         page_icon=":graph:"
     )
-    st.sidebar.image('logo.png', use_column_width=True) 
+    st.sidebar.image('logo.png', use_container_width=True) 
     with st.sidebar.expander("Expand Me"):
         st.markdown("""
     This application allows you to upload a PDF file, extract its content into a Neo4j graph database, and perform queries using natural language.
@@ -31,15 +32,16 @@ def main():
     load_dotenv()
 
     # Set OpenAI API key
-    if 'OPENAI_API_KEY' not in st.session_state:
-        st.sidebar.subheader("OpenAI API Key")
-        openai_api_key = st.sidebar.text_input("Enter your OpenAI API Key:", type='password')
+    if 'GROQ_API_KEY' not in st.session_state:
+        st.sidebar.subheader("Groq API Key")
+        openai_api_key = st.sidebar.text_input("Enter your Groq API Key:", type='password')
         if openai_api_key:
-            os.environ['OPENAI_API_KEY'] = openai_api_key
-            st.session_state['OPENAI_API_KEY'] = openai_api_key
-            st.sidebar.success("OpenAI API Key set successfully.")
+            os.environ['GROQ_API_KEY'] = openai_api_key
+            st.session_state['GROQ_API_KEY'] = openai_api_key
+            st.sidebar.success("Groq API Key set successfully.")
             embeddings = OpenAIEmbeddings()
-            llm = ChatOpenAI(model_name="gpt-4o")  # Use model that supports function calling
+            #llm = ChatOpenAI(model_name="gpt-4o")  # Use model that supports function calling
+            llm = ChatGroq(groq_api_key=st.session_state.groq_api_key, model_name="gemma2-9b-it")
             st.session_state['embeddings'] = embeddings
             st.session_state['llm'] = llm
     else:
