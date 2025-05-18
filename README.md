@@ -31,19 +31,13 @@ Graphy v1 allows users to upload a PDF document, which is then processed to extr
 - **Visualization**: (Coming Soon) Visual representation of the graph and query results.
 - **Extensible**: Designed to support multiple documents and more conversational interactions in future versions.
 
-## Demo
 
-[![Watch the video](https://img.youtube.com/vi/odtGLUPXqfs/hqdefault.jpg)](https://youtu.be/odtGLUPXqfs)
-
-
-*Click the image above to watch the demo video on YouTube.*
 
 ## Getting Started
 
 ### Prerequisites
 
 - Python 3.10 or higher
-- An OpenAI API key with access to GPT models (e.g., `gpt-4o` or `ada 002`)
 - A Neo4j database instance (local or remote)
 - [Streamlit](https://streamlit.io/)
 
@@ -75,12 +69,12 @@ Graphy v1 allows users to upload a PDF document, which is then processed to extr
 
 1. **Set Up Credentials**
 
-   - Place your OpenAI API key and Neo4j credentials in a `.env` file or enter them directly in the app's sidebar when running.
+   - Place your Groq API key and Neo4j credentials in a `.env` file or enter them directly in the app's sidebar when running.
 
    Example `.env` file:
 
    ```env
-   OPENAI_API_KEY=your-openai-api-key
+   GROQ_API_KEY=your-groq-api-key
    NEO4J_URL=neo4j+s://your-neo4j-url
    NEO4J_USERNAME=your-username
    NEO4J_PASSWORD=your-password
@@ -98,32 +92,3 @@ Graphy v1 allows users to upload a PDF document, which is then processed to extr
    - Once the document is processed, ask questions in the provided text input field.
    - View the generated Cypher query and the answer retrieved from the graph.
 
-## Contributing
-
-Contributions are welcome! Here are some ways you can help:
-
-- **Enhancements**: Make the app more conversational or extend it to support multiple documents.
-- **Bug Reports**: Submit issues for any bugs you encounter.
-- **Feature Requests**: Suggest new features or improvements.
-- **Documentation**: Improve documentation and tutorials.
-
-To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Commit your changes with clear commit messages.
-4. Open a pull request describing your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
-
-## Contact
-
-For questions or inquiries, please contact the developer:
-
-- **Email**: [aianytime07@gmail.com](mailto:aianytime07@gmail.com)
-
----
-
-*Disclaimer: This project is for educational purposes. Please ensure compliance with all applicable laws and regulations when using OpenAI's API and handling data.*
